@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: initcontainer-pod1
+  name: initcontainer-pod2
 spec:
   containers:
   - name: service-container
-    image: registry:5000/notation:signed
+    image: wabbitnetworks.azurecr.io/ratify/notary-image:signed
   initContainers:
   - name: init-service
-    image: registry:5000/notation:signed
+    image: wabbitnetworks.azurecr.io/ratify/notary-image:signed
+    command: ['sh', '-c', 'echo "logging"']
